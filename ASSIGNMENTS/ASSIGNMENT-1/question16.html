@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Q16 - Inline vs Block Navigation</title>
+
+<style>
+  body {
+    margin: 20px;
+    font-family: Arial;
+  }
+
+  .nav-inline a {
+    display: inline;
+    margin-right: 15px;
+    color: blue;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  .nav-block a {
+    display: block;
+    margin: 8px 0;
+    background:white;
+    padding: 10px;
+    color: darkgreen;
+    text-decoration: none;
+    width: 150px;
+  }
+</style>
+
+</head>
+<body>
+
+<h2>Navigation Using display:inline</h2>
+<div class="nav-inline">
+  <a href="#">Home</a>
+  <a href="#">Services</a>
+  <a href="#">Contact</a>
+  <a href="#">About</a>
+</div>
+
+<hr>
+
+<h2>Navigation Using display:block</h2>
+<div class="nav-block">
+  <a href="#">Home</a>
+  <a href="#">Services</a>
+  <a href="#">Contact</a>
+  <a href="#">About</a>
+</div>
+
+</body>
+</html>

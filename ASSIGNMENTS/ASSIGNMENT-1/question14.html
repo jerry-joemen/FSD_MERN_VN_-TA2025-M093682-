@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Q14 - Sticky Sidebar Layout</title>
+
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background: wheat;
+  }
+
+  .layout {
+    display: flex;
+  }
+
+  .sidebar {
+    width: 200px;
+    background: white;
+    padding: 15px;
+    border: 2px dashed gray;
+    position: sticky;   
+    top: 20px;
+    height: fit-content;
+  }
+
+  .main-content {
+    margin-left: 20px;
+    padding: 20px;
+    background: white;
+    border: 1px solid white;
+    height: 1200px;
+  }
+</style>
+
+</head>
+<body>
+
+<h2>Sticky Sidebar Demo</h2>
+
+<div class="layout">
+
+  <div class="sidebar">
+    <h3>Sidebar (Sticky)</h3>
+    <p>Position: sticky;</p>
+    <ul>
+      <li>Menu 1</li>
+      <li>Menu 2</li>
+      <li>Menu 3</li>
+    </ul>
+  </div>
+
+  <div class="main-content">
+    <h3>Main Content Scrolls Normally</h3>
+    <p>Scroll down to see the sidebar remain visible.</p>
+  </div>
+
+</div>
+
+</body>
+</html>

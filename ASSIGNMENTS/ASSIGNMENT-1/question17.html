@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Q17 - Flexbox Photo Gallery</title>
+
+<style>
+    body {
+        margin: 20px;
+        font-family: Arial, sans-serif;
+        background: #f7f7f7;
+    }
+
+    h2 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    
+    .gallery {
+        display: flex;
+        flex-wrap: wrap;             
+        justify-content: center;      
+        gap: 20px;                     
+    }
+
+    .gallery-item {
+        width: 30%;                    
+        min-width: 250px;             
+        background: white;
+        border-radius: 8px;
+        padding: 10px;
+        display: flex;                 
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    }
+
+    .gallery-item img {
+        width: 100%;
+        border-radius: 8px;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+    }
+
+    .gallery-item img:hover {
+        transform: scale(1.05);
+    }
+</style>
+</head>
+
+<body>
+
+<h2>CSS Flexbox Photo Gallery (Links to Wikipedia)</h2>
+
+<div class="gallery">
+
+    
+    <a class="gallery-item" href="https://en.wikipedia.org/wiki/Sun" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Solar_sys8.jpg" alt="Sun Photo">
+    </a>
+
+    
+    <a class="gallery-item" href="https://en.wikipedia.org/wiki/Moon" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e1/FullMoon2010.jpg" alt="Moon Photo">
+    </a>
+
+    
+    <a class="gallery-item" href="https://en.wikipedia.org/wiki/Earth" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/97/The_Earth_seen_from_Apollo_17.jpg" alt="Earth Photo">
+    </a>
+
+
+    <a class="gallery-item" href="https://en.wikipedia.org/wiki/Jupiter" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e2/Jupiter.jpg" alt="Jupiter Photo">
+    </a>
+
+    
+    <a class="gallery-item" href="https://en.wikipedia.org/wiki/Saturn" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Saturn_during_Equinox.jpg" alt="Saturn Photo">
+    </a>
+
+    
+    <a class="gallery-item" href="https://en.wikipedia.org/wiki/Mars" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/02/OSIRIS_Mars_true_color.jpg" alt="Mars Photo">
+    </a>
+
+</div>
+
+</body>
+</html>

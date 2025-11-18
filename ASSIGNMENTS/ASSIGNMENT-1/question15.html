@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Q15 - Positioning Boxes</title>
+
+<style>
+  body {
+    font-family: Arial;
+    margin: 20px;
+  }
+
+  .parent {
+    width: 400px;
+    height: 300px;
+    background: lightpink;
+    position: relative;
+    padding: 10px;
+    border: 2px solid wheat;
+  }
+
+  .box {
+    width: 150px;
+    height: 150px;
+    color: white;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .relative-box {
+    background: orange;
+    position: relative;
+    top: 20px;
+    left: 20px;
+  }
+
+  .absolute-box {
+    background:red;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+  }
+
+  .fixed-box {
+    background: skyblue;
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+  }
+</style>
+</head>
+
+<body>
+
+<h2>Positioning Demo</h2>
+
+<div class="parent">
+  <div class="box relative-box">Relative</div>
+  <div class="box absolute-box">Absolute</div>
+</div>
+
+<div class="box fixed-box">Fixed</div>
+
+<p style="height:1200px;">Scroll down to see the fixed box stay in place.</p>
+
+</body>
+</html>

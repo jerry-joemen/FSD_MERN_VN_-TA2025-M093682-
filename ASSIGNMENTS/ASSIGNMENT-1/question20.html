@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Q20 - Responsive Card Grid</title>
+  <style>
+   
+    :root{
+      --gap: 18px;
+      --card-bg: #ffffff;
+      --card-border: rgba(16, 32, 64, 0.06);
+      --accent: #2b7cff;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+      background: #f4f6fb;
+      color: #102;
+      padding: 28px;
+    }
+
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      margin: 0 0 18px 0;
+      font-size: 20px;
+    }
+
+    
+    .card-grid {
+      display: grid;
+      gap: var(--gap);
+
+      
+      grid-template-columns: 1fr;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 6px 18px rgba(12,30,60,0.04);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      display:block;
+    }
+
+    .card-body {
+      padding: 14px;
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+    }
+
+    .card-title {
+      font-weight:700;
+      font-size:16px;
+    }
+
+    .card-desc {
+      font-size:13px;
+      color:#445;
+      flex:1;
+    }
+
+    .card-action {
+      display:flex;
+      justify-content:flex-end;
+      padding: 12px 14px;
+      border-top: 1px solid rgba(16,32,64,0.03);
+      gap:8px;
+    }
+    .btn {
+      background: var(--accent);
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight:700;
+    }
+
+    
+    @media (min-width: 480px) and (max-width: 767px) {
+      .card-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    
+    @media (min-width: 768px) and (max-width: 1199px) {
+      .card-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    
+    @media (min-width: 1200px) {
+      .card-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+   
+    .notes { margin-top: 14px; font-size: 13px; color: #345; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Responsive Card Grid</h1>
+    <p class="notes">Breakpoints: &lt;480px = 1col, 480–767px = 2col, 768–1199px = 3col, ≥1200px = 4col</p>
+
+    <section class="card-grid" aria-label="Card grid">
+      
+      <article class="card">
+        <img src="https://picsum.photos/id/1015/800/480" alt="Sample image 1">
+        <div class="card-body">
+          <div class="card-title">Card One</div>
+          <div class="card-desc">Short description showing how the card looks. Replace with your content.</div>
+        </div>
+        <div class="card-action">
+          <button class="btn">View</button>
+        </div>
+      </article>
+
+      
+      <article class="card">
+        <img src="https://picsum.photos/id/1016/800/480" alt="Sample image 2">
+        <div class="card-body">
+          <div class="card-title">Card Two</div>
+          <div class="card-desc">Another short description. Cards auto-flow into rows depending on window width.</div>
+        </div>
+        <div class="card-action">
+          <button class="btn">View</button>
+        </div>
+      </article>
+
+      
+      <article class="card">
+        <img src="https://picsum.photos/id/1025/800/480" alt="Sample image 3">
+        <div class="card-body">
+          <div class="card-title">Card Three</div>
+          <div class="card-desc">Cards are responsive and use CSS Grid to control columns per breakpoint.</div>
+        </div>
+        <div class="card-action">
+          <button class="btn">View</button>
+        </div>
+      </article>
+
+      
+      <article class="card">
+        <img src="https://picsum.photos/id/1035/800/480" alt="Sample image 4">
+        <div class="card-body">
+          <div class="card-title">Card Four</div>
+          <div class="card-desc">Use images, text, and actions inside each card. Grid handles placement.</div>
+        </div>
+        <div class="card-action">
+          <button class="btn">View</button>
+        </div>
+      </article>
+
+      
+      <article class="card">
+        <img src="https://picsum.photos/id/1041/800/480" alt="Sample image 5">
+        <div class="card-body">
+          <div class="card-title">Card Five</div>
+          <div class="card-desc">Demo content — swap in real cards for your site or dashboard.</div>
+        </div>
+        <div class="card-action">
+          <button class="btn">View</button>
+        </div>
+      </article>
+
+      
+      <article class="card">
+        <img src="https://picsum.photos/id/1050/800/480" alt="Sample image 6">
+        <div class="card-body">
+          <div class="card-title">Card Six</div>
+          <div class="card-desc">Final card in the 6-card demo. Grid will adapt columns based on viewport width.</div>
+        </div>
+        <div class="card-action">
+          <button class="btn">View</button>
+        </div>
+      </article>
+    </section>
+  </div>
+</body>
+</html>

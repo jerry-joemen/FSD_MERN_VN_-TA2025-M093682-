@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS Styling Methods</title>
+
+    
+    <style>
+        #internal-section {
+            background-color: white;
+            padding: 20px;
+            border: 2px solid blue;
+            text-align: center;
+        }
+    </style>
+
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    
+    <p style="color: red; font-weight: bold; margin: 20px;">
+        This paragraph is styled using INLINE CSS.
+    </p>
+
+    
+    <div id="internal-section">
+        <h2>Section Styled with INTERNAL CSS</h2>
+        <p>This entire section uses internal CSS defined in the &lt;style&gt; tag.</p>
+    </div>
+
+    
+    <div class="external-content">
+        <h2>Styled with EXTERNAL CSS</h2>
+        <p>The styling for this content is applied from the external stylesheet (styles.css).</p>
+    </div>
+
+</body>
+</html>

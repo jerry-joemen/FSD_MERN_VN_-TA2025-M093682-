@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Q13 - Fixed Header</title>
+
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    padding-top: 70px; 
+
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: skyblue;
+    color: white;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    z-index: 1000;
+  }
+
+  nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 15px;
+    font-weight: bold;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo"><strong>MyLogo</strong></div>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+  </nav>
+</header>
+
+<h2>Scroll to see the fixed header remain in place</h2>
+
+<p style="height:1500px;">Lots of scrollable content here...</p>
+
+</body>
+</html>

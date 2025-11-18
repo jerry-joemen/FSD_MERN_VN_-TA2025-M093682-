@@ -1,0 +1,14 @@
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fafafa;
+}
+
+.external-content {
+    background-color: #e0f7e9;
+    padding: 20px;
+    border: 2px dashed #2a9d8f;
+    margin: 20px;
+    text-align: center;
+}

@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Dharani dharan portfolio</title>
+
+  
+
+  <style>
+   
+    :root{
+      --bg: #f6f9fc;
+      --card: #ffffff;
+      --muted: #6b7280;
+      --accent: #2b7cff;
+      --accent-2: #1aa7ff;
+      --radius: 12px;
+      --max-w: 1100px;
+      --pad: 20px;
+    }
+
+    *{box-sizing:border-box}
+    html { scroll-behavior: smooth; }
+    body{
+      margin:0;
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+      background: linear-gradient(180deg,#f8fbff,var(--bg));
+      color:#0b2033;
+      line-height:1.5;
+    }
+    a { color:var(--accent); text-decoration:none }
+    a:hover { text-decoration:underline }
+
+    .wrap { max-width:var(--max-w); margin:0 auto; padding:calc(var(--pad) + 8px); }
+
+    
+    header.site-header{
+      margin:14px auto;
+      position:sticky;
+      top:12px;
+      z-index:100;
+      background: rgba(255,255,255,0.75);
+      backdrop-filter: blur(6px);
+      border-radius:14px;
+      box-shadow: 0 8px 26px rgba(12,30,60,0.06);
+      border:1px solid rgba(12,30,60,0.04);
+    }
+
+    .nav-inner{
+      display:flex;
+      gap:12px;
+      align-items:center;
+      justify-content:space-between;
+      padding:12px 16px;
+    }
+
+    .brand { display:flex; align-items:center; gap:12px; }
+    .logo {
+      width:46px; height:46px; border-radius:10px;
+      background: linear-gradient(135deg,var(--accent),var(--accent-2));
+      color:#fff; display:inline-flex; align-items:center; justify-content:center; font-weight:800;
+    }
+    .brand .name { font-weight:800; font-size:16px; color:#072033; }
+
+    
+    nav.primary { display:flex; gap:12px; align-items:center; }
+    nav.primary a{ padding:8px 10px; border-radius:8px; font-weight:600; color:#072033; }
+    nav.primary a:focus, nav.primary a:hover { background: rgba(43,124,255,0.06); color:var(--accent); }
+
+   
+    #nav-toggle { display:none; }
+
+   
+    .hamburger {
+      display:none;
+      width:44px; height:44px; border-radius:8px; border:none; cursor:pointer;
+      align-items:center; justify-content:center; background:transparent;
+    }
+    .hamburger .bar { width:22px; height:2px; background:#0b2033; position:relative; display:block; }
+    .hamburger .bar::before, .hamburger .bar::after { content:""; position:absolute; left:0; right:0; height:2px; background:#0b2033; }
+    .hamburger .bar::before { top:-7px; } .hamburger .bar::after { top:7px; }
+
+    
+    .mobile-menu {
+      display:none;
+      padding:12px 16px 18px;
+      border-top:1px solid rgba(12,30,60,0.03);
+      background:transparent;
+    }
+    .mobile-menu a { display:block; padding:10px; border-radius:8px; color:#072033; margin-bottom:6px; }
+
+   
+    #nav-toggle:checked + label + nav.primary { display:flex; }
+    #nav-toggle:checked + label + nav.primary + .mobile-menu { display:block; }
+
+   
+    .hero { display:grid; grid-template-columns:1fr 360px; gap:28px; align-items:center; margin-top:18px; }
+    .hero-left h1{ margin:0 0 12px; font-size:34px; line-height:1.05; }
+    .lead { color:var(--muted); margin:0 0 16px; }
+
+    .cta { display:inline-block; padding:10px 14px; border-radius:10px; font-weight:700; color:white; background:linear-gradient(90deg,var(--accent),var(--accent-2)); text-decoration:none; }
+    .cta.alt { background:transparent; color:var(--accent); border:1px solid rgba(43,124,255,0.12); padding:9px 12px; }
+
+    .hero-right .profile-card {
+      background:var(--card); padding:14px; border-radius:12px; display:flex; gap:12px; align-items:center; border:1px solid rgba(12,30,60,0.04);
+      box-shadow: 0 10px 30px rgba(12,30,60,0.05);
+    }
+    .avatar { width:84px; height:84px; border-radius:12px; display:inline-flex; align-items:center; justify-content:center; color:white; font-weight:800; background:linear-gradient(135deg,#ffd89b,#19547b); }
+
+   
+    .projects-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:16px; }
+    .project { background:var(--card); border-radius:12px; overflow:hidden; border:1px solid rgba(12,30,60,0.04); box-shadow:0 8px 28px rgba(12,30,60,0.04); display:flex; flex-direction:column; }
+    .project img{ width:100%; height:150px; object-fit:cover; display:block; }
+    .project-body{ padding:12px; display:flex; flex-direction:column; gap:8px; }
+    .project-title{ font-weight:800; }
+
+    
+    .about { display:flex; gap:16px; margin-top:28px; align-items:flex-start; }
+    .bio { flex:2; background:var(--card); padding:14px; border-radius:12px; border:1px solid rgba(12,30,60,0.04); }
+    .skills { flex:1; display:flex; flex-direction:column; gap:10px; }
+    .skill-pill { background:#eef6ff; display:inline-block; padding:8px 10px; border-radius:999px; font-weight:700; color:#0b3a66; }
+
+   
+    .contact { display:grid; grid-template-columns:1fr 320px; gap:16px; margin-top:20px; }
+    .card { background:var(--card); padding:14px; border-radius:12px; border:1px solid rgba(12,30,60,0.04); box-shadow:0 8px 20px rgba(12,30,60,0.04); }
+    input, textarea { width:100%; padding:10px 12px; border-radius:8px; border:1px solid rgba(12,30,60,0.08); font-size:14px; }
+    textarea { min-height:120px; resize:vertical; }
+
+    .btn { display:inline-block; padding:10px 14px; border-radius:10px; text-decoration:none; color:white; background:linear-gradient(90deg,var(--accent),var(--accent-2)); font-weight:700; }
+
+    footer { margin-top:28px; text-align:center; color:var(--muted); font-size:14px; padding-bottom:30px; }
+
+   
+    @media (max-width:1000px){
+      .hero { grid-template-columns:1fr; }
+      .projects-grid { grid-template-columns:repeat(2,1fr); }
+      .contact { grid-template-columns:1fr; }
+      .about { flex-direction:column; }
+    }
+
+    @media (max-width:700px){
+     
+      nav.primary { display:none; }
+      .hamburger { display:flex; }
+      .mobile-menu { display:none; } 
+      .projects-grid { grid-template-columns:1fr; }
+    }
+
+    @media (max-width:420px){
+      .hero-left h1 { font-size:26px; }
+    }
+
+    
+    .muted { color:var(--muted); }
+    .spaced { margin-top:12px; }
+    .row { display:flex; gap:8px; align-items:center; flex-wrap:wrap; }
+  </style>
+</head>
+<body>
+
+ 
+  <header class="site-header wrap" role="banner">
+    <div class="nav-inner">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">DD</div>
+        <div class="name">Dharani dharan S</div>
+      </div>
+
+      
+      <input type="checkbox" id="nav-toggle" aria-hidden="true">
+
+      
+      <label for="nav-toggle" class="hamburger" aria-hidden="true" title="Toggle menu">
+        <span class="bar" aria-hidden="true"></span>
+      </label>
+
+      
+      <nav class="primary" role="navigation" aria-label="Primary">
+        <a href="#home">Home</a>
+        <a href="#projects">Projects</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+
+    
+    <div class="mobile-menu wrap" aria-hidden="false">
+      <a href="#home">Home</a>
+      <a href="#projects">Projects</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </header>
+
+ 
+  <main id="home" class="wrap" role="main">
+
+    
+    <section class="hero" aria-labelledby="hero-heading">
+      <div class="hero-left">
+        <h1 id="hero-heading">Hi — I'm Dharani dharan s.<br> I build delightful web experiences.</h1>
+        <p class="lead">Frontend developer focused on responsive UI, accessibility and performance. I turn designs into fast, usable websites.</p>
+
+        <div class="row spaced">
+          <a class="cta" href="#projects">View Projects</a>
+          <a class="cta alt" href="#contact">Contact</a>
+        </div>
+
+        <div class="row spaced">
+          <span class="skill-pill">HTML</span>
+          <span class="skill-pill">CSS</span>
+          <span class="skill-pill">JS</span>
+          <span class="skill-pill">React</span>
+        </div>
+      </div>
+
+      <aside class="hero-right">
+        <div class="profile-card">
+          <div class="avatar" aria-hidden="true">JD</div>
+          <div>
+            <div style="font-weight:800">Dharani dharan S</div>
+            <div class="muted">Frontend Developer • Chennai</div>
+            <div class="row spaced" style="margin-top:8px">
+              <div><strong>8+</strong><div class="muted" style="font-size:12px">Years</div></div>
+              <div><strong>30+</strong><div class="muted" style="font-size:12px">Projects</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row spaced" style="margin-top:12px">
+          <a class="btn" href="mailto:your.email@example.com">Hire Me</a>
+          <a class="cta alt" href="#" aria-hidden="true">Resume</a>
+        </div>
+      </aside>
+    </section>
+
+    
+    <section id="projects" class="spaced">
+      <div style="display:flex; justify-content:space-between; align-items:center; gap:12px;">
+        <h2 style="margin:0">Selected Projects</h2>
+        <div class="muted">Curated recent work</div>
+      </div>
+
+      <div class="projects-grid" role="list">
+        
+        <article class="project" role="listitem">
+          <img src="https://picsum.photos/id/1005/800/600" alt="Project screenshot 1" loading="lazy">
+          <div class="project-body">
+            <div class="project-title">Landing Page</div>
+            <div class="muted">Responsive landing page optimized for performance and conversions.</div>
+            <div class="spaced"><a href="#" class="btn" style="background:linear-gradient(90deg,#2bc3ff,#2b7cff)">Live</a></div>
+          </div>
+        </article>
+
+        <article class="project" role="listitem">
+          <img src="https://picsum.photos/id/1011/800/600" alt="Project screenshot 2" loading="lazy">
+          <div class="project-body">
+            <div class="project-title">Admin Dashboard</div>
+            <div class="muted">Modular dashboard UI using CSS Grid and components.</div>
+            <div class="spaced"><a href="#" class="btn">Live</a></div>
+          </div>
+        </article>
+
+        <article class="project" role="listitem">
+          <img src="https://picsum.photos/id/1037/800/600" alt="Project screenshot 3" loading="lazy">
+          <div class="project-body">
+            <div class="project-title">Map Explorer</div>
+            <div class="muted">Interactive map interface with keyboard accessibility.</div>
+            <div class="spaced"><a href="#" class="btn">Live</a></div>
+          </div>
+        </article>
+
+        <article class="project" role="listitem">
+          <img src="https://picsum.photos/id/1052/800/600" alt="Project screenshot 4" loading="lazy">
+          <div class="project-body">
+            <div class="project-title">E-commerce UI</div>
+            <div class="muted">Product listing and checkout prototype focusing on usability.</div>
+            <div class="spaced"><a href="#" class="btn">Live</a></div>
+          </div>
+        </article>
+
+        <article class="project" role="listitem">
+          <img src="https://picsum.photos/id/1074/800/600" alt="Project screenshot 5" loading="lazy">
+          <div class="project-body">
+            <div class="project-title">Blog Theme</div>
+            <div class="muted">Readable typography, responsive article layout and accessibility-first styles.</div>
+            <div class="spaced"><a href="#" class="btn">Live</a></div>
+          </div>
+        </article>
+
+        <article class="project" role="listitem">
+          <img src="https://picsum.photos/id/1080/800/600" alt="Project screenshot 6" loading="lazy">
+          <div class="project-body">
+            <div class="project-title">Accessibility Audit</div>
+            <div class="muted">Audit and improvements focused on semantics and keyboard navigation.</div>
+            <div class="spaced"><a href="#" class="btn">Report</a></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ABOUT / SKILLS -->
+    <section id="about" class="about">
+      <div class="bio card">
+        <h2 style="margin-top:0">About Me</h2>
+        <p class="muted">I build front-end apps and UI components with an emphasis on accessibility, responsiveness and performance. I enjoy design systems, polishing interactions, and collaborating with product teams.</p>
+
+        <h3 style="margin-top:14px">Tools & Tech</h3>
+        <div class="row spaced">
+          <span class="skill-pill">HTML</span>
+          <span class="skill-pill">CSS</span>
+          <span class="skill-pill">JavaScript</span>
+          <span class="skill-pill">React</span>
+          <span class="skill-pill">Figma</span>
+        </div>
+      </div>
+
+      <aside class="skills">
+        <div class="card">
+          <h3 style="margin-top:0">Quick Facts</h3>
+          <ul class="muted" style="padding-left:18px; margin:8px 0 0 0;">
+            <li>8+ years building UIs</li>
+            <li>Remote friendly</li>
+            <li>Contributor to open-source</li>
+          </ul>
+        </div>
+
+        <div class="card" style="margin-top:12px">
+          <h3 style="margin-top:0">Contact</h3>
+          <p class="muted">Email: <a href="mailto:your.email@example.com">dharandharani2675@gmail.com</a></p>
+        </div>
+      </aside>
+    </section>
+
+  
+    <section id="contact" class="contact spaced" aria-labelledby="contact-heading">
+      <div class="card">
+        <h2 id="contact-heading" style="margin-top:0">Contact Me</h2>
+        <p class="muted">Send a message — the form below uses a mailto fallback (works without JavaScript).</p>
+
+        
+        <form action="mailto:your.email@example.com" method="post" enctype="text/plain">
+          <div style="display:flex; gap:12px; margin-top:12px; flex-wrap:wrap;">
+            <input type="text" name="Name" placeholder="Your name" required style="flex:1; min-width:180px;">
+            <input type="email" name="Email" placeholder="you@example.com" required style="flex:1; min-width:180px;">
+          </div>
+
+          <div style="margin-top:12px;">
+            <input type="text" name="Subject" placeholder="Subject (optional)">
+          </div>
+
+          <div style="margin-top:12px;">
+            <textarea name="Message" placeholder="Tell me about your project..." required></textarea>
+          </div>
+
+          <div style="margin-top:12px; display:flex; gap:10px; align-items:center;">
+            <button type="submit" class="btn">Send</button>
+            <button type="reset" class="btn" style="background:transparent; color:var(--accent); border:1px solid rgba(43,124,255,0.12)">Reset</button>
+          </div>
+        </form>
+      </div>
+
+      <aside class="card">
+        <h3 style="margin-top:0">Other ways to reach me</h3>
+        <p class="muted">Email: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
+        <p class="muted">LinkedIn: <a href="#">/in/janedoe</a></p>
+        <p class="muted">Location: Bangalore, India</p>
+      </aside>
+    </section>
+
+    <footer>
+      © <span id="year">2025</span> Jane Doe — Built with HTML &amp; CSS (no JS)
+    </footer>
+  </main>
+</body>
+</html>
